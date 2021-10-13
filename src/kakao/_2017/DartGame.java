@@ -16,7 +16,7 @@ public class DartGame {
     }
 
     public DartGame() {
-        while (true) {
+        while(true) {
             try {
                 String str = input();
                 if(str.equals("z")) {
