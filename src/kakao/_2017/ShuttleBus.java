@@ -32,7 +32,23 @@ public class ShuttleBus {
         System.out.print("m : ");
         String m = br.readLine();
         System.out.print("timeTable : ");
-        List<String> timetable = Arrays.asList(br.readLine().split(","));
+        String timetable = br.readLine();
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("n", n);
+        resultMap.put("t", t);
+        resultMap.put("m", m);
+        resultMap.put("timeTable", timetable);
+        return resultMap;
+    }
+
+    public int calculate(Map map) {
+        int n = Integer.parseInt(map.get("n").toString());
+        int t = Integer.parseInt(map.get("t").toString());
+        int m = Integer.parseInt(map.get("m").toString());
+        String timeTable = (String) map.get("timeTable");
+
+        List<String> timetable = Arrays.asList(timeTable.split(","));
         List<Integer> manufactureList = timetable
                 .stream()
                 .map(one -> {
@@ -43,19 +59,6 @@ public class ShuttleBus {
         Collections.sort(manufactureList);
         Queue queue = (Queue)manufactureList;
 
-        Map<String, Object> resultMap = new HashMap<>();
-        resultMap.put("n", n);
-        resultMap.put("t", t);
-        resultMap.put("m", m);
-        resultMap.put("timeTable", queue);
-        return resultMap;
-    }
-
-    public int calculate(Map map) {
-        int n = Integer.parseInt(map.get("n").toString());
-        int t = Integer.parseInt(map.get("t").toString());
-        int m = Integer.parseInt(map.get("m").toString());
-        Queue timeTable = (Queue) map.get("timeTable");
         int startTime = 540;
 
         int passengerCount = 0;
@@ -63,9 +66,9 @@ public class ShuttleBus {
         for (int i=0; i<n; i++) {
             passengerCount = 0;
             passTime = 0;
-            while(timeTable.size() != 0) {
-                if((int) timeTable.peek() <= startTime+(t*i) && passengerCount < m) {
-                    passTime = (int) timeTable.poll();
+            while(queue.size() != 0) {
+                if((int) queue.peek() <= startTime+(t*i) && passengerCount < m) {
+                    passTime = (int) queue.poll();
                     passengerCount++;
                 } else {
                     break;
