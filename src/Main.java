@@ -1,16 +1,13 @@
-import kakao._2017.Cache;
-import kakao._2017.DartGame;
-import kakao._2017.SecretMap;
-import kakao._2017.ShuttleBus;
+import kakao._2017.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
 //        DartGame dartGame = new DartGame();
 //        SecretMap secretMap = new SecretMap();
 //        Cache cache = new Cache();
-        ShuttleBus shuttleBus = new ShuttleBus();
+//        ShuttleBus shuttleBus = new ShuttleBus();
+        NewsClustering newsClustering = new NewsClustering();
     }
 }
