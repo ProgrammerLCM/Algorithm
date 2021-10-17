@@ -43,7 +43,7 @@ public class Cache {
         int cacheSize = Integer.parseInt(map.get("cacheSize").toString());
         String[] cities = (String[]) map.get("cities");
         for(String city : cities) {
-            String tempCity = city.toLowerCase();
+            String tempCity = city.toLowerCase().replaceAll("[“|”|\"| ]", "");
             totalTime += (queue.contains(tempCity) ? 1 : 5);
             queue.offer(tempCity);
             if(queue.size() > cacheSize) {
