@@ -11,5 +11,6 @@ public class Main {
 //        Cache cache = new Cache();
 //        ShuttleBus shuttleBus = new ShuttleBus();
 //        NewsClustering newsClustering = new NewsClustering();
+        Friends4Block friends4Block = new Friends4Block();
     }
 }
